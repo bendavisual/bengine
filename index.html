@@ -66,7 +66,7 @@
  Overall Design Decision Aspects
 </h3>
 <ul>
-<li> Unless WebGL is used, rendering is restricted to Painter’s algorithm ordering upon the HTML canvas, as the 2D canvas element API alone does not expose a programmable depth buffer for parallel fragment processing (hence the purpose behind the advent of WebGL). Emulating depth, occlusion, and shading, on the CPU per pixel, scales poorly as resizing resolution or triangle count increases, making GPU-driven rendering essential for real-time interaction, a critical feature for this simulation. </li>
+<li> Without WebGL, accessing the GPU for this kind of work is basically impossible... </li>
 <li> In real time, CPU alone sufficiently handles novel efficiently designed physics subroutines (alluded to in dissertation) </li>
  <li> Audio mathematically generated using DSP internally, such as with AM for ASDR envelopes, FM for vibrato / chirp signals, and additive/subtractive synthesis for filtering multiband noise layers </li>
 </ul>
@@ -129,4 +129,5 @@ In conclusion, this all delineates the core essence behind the coined term “Be
  <script src="script.js"></script>
 </body>
 </html>
+
 
