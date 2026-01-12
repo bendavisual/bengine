@@ -1,0 +1,43 @@
+﻿body {
+margin: 20px;
+background: #ededed;
+color: rgb(0, 0, 0);
+font-family: sans-serif;
+}
+h1, h2, h3 {
+color: rgb(0, 0, 0);
+margin-bottom: 0.5em;
+}
+#wrapper {
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+gap: 20px;
+}
+#glcanvas {
+border: 1px solid #97ac87;
+}
+#controls {
+border: 3px solid #a7a0d5;
+background: #ffffff;
+padding: 10px;
+width: 250px;
+}
+table {
+font-size: 11px;
+width: 100%;
+border-collapse: collapse;
+}
+th, td {
+border: 1px solid #000000;
+padding: 4px 8px;
+text-align: left;
+}
+th {
+background: #cbcbcb;
+color: rgb(0, 0, 0);
+}
+#description {
+margin-top: 20px;
+max-width: 800px;
+}
