@@ -11,30 +11,21 @@
  <!--Wrap JSfiddle in window.onload=function(){JS}-->
 
 <h1>STE(A)M Game Bengine Demo</h1>
-<h2> Purpose and Key Takeaways </h2>
-<h4> Intended as a proof of concept demonstration of: </h4>
-<ul>
-<li> the primary fundamental values embodied by the doctrine of STE(A)M&mdash; Science, Technology, Engineering, Artistic Design Thinking, and Mathematics&mdash; illustrated through the foundation of a democratized, immersive, interactive, and engaging environment, to portray diverse capabilities of the scientific computing ecosystem along with its applications </li> 
-<li> the strengths of the entity "STE(A)M", where creative technical thinking inconspicuously garners unique performance potential, much like how gaseous water vapor drove steam engines through valves (corp.), eventually made sturdy enough during the industrial revolution </li> 
-<li> an explicit showcase of original synthesis of weaving interdisciplinary methodologies into a concrete viewable product that can be easily disseminated, with maximal accessibility </li> 
-<li> synergistic integration of disparate techniques into a particular unified system's practical implementation, generalized beyond its niche </li> 
-<li> evidence-based communication of situationally effective tools and their results in a multimedia user-experience </li> 
-</ul>
 <h3> Have fun and enjoy! </h3>
 <h3>Ben Davis</h3>
 <div id="wrapper">
 <canvas id="glcanvas" width="700" height="700"></canvas>
 <div id="controls">
- <h2>Keyboard Controls</h2>
- <table>
+<h2>Keyboard Controls</h2>
+<table>
 <tr><th>Key</th><th>Action</th></tr>
 <tr><td>W/S</td><td>Camera Strafe Forward/Backward</td></tr>
 <tr><td>A/D</td><td>Camera Strafe Left/Right</td></tr>
 <tr><td>X/shiftkey</td><td>Camera Elevate/Descend</td></tr>
 <tr><td>7/8</td><td>Point Camera Oriention Up/Down </td></tr>
 <tr><td>y/i</td><td>Point Camera Oriention Left/Right </td></tr>
-<tr><td>Z/C</td><td>Camera Roll Counterclockwise/Clockwise</td></tr>   
-<tr><td>R</td><td>Reset Environment</td></tr>   
+<tr><td>Z/C</td><td>Camera Roll Counterclockwise/Clockwise</td></tr>  
+<tr><td>R</td><td>Reset Environment</td></tr>  
 <tr><td>Q</td><td>Quit/Reset Simulation</td></tr>
 <tr><td>E</td><td>Edges of Surface Mesh Toggle</td></tr>
 <tr><td>T</td><td>Tap all the objects</td></tr>
@@ -49,92 +40,110 @@
 <tr><td>M</td><td>Mount Camera upon Spaceship Toggle</td></tr>
 <tr><td>L</td><td>Look at Center: Point Camera + Spaceship toward origin</td></tr>
 <tr><td>V</td><td>Volley Basketball Asteroid to Hoop</td></tr>
- </table>
+</table>
 </div>
 </div>
 
 <div id="description">
 <h1>About Simulation</h1>
+
+<h2> Purpose and Key Takeaways </h2>
+<h4> Intended as a proof of concept demonstration of: </h4>
+<ul>
+<li> the primary fundamental values embodied by the doctrine of STE(A)M&mdash; Science, Technology, Engineering, Artistic Design Thinking, and Mathematics&mdash; illustrated through the foundation of a democratized, immersive, interactive, and engaging environment, to portray diverse capabilities of the scientific computing ecosystem along with its applications </li>
+<li> the strengths of the entity "STE(A)M", where creative technical thinking inconspicuously garners unique performance potential, much like how gaseous water vapor drove steam engines through valves (corp.), eventually made sturdy enough during the industrial revolution </li>
+<li> an explicit showcase of original synthesis of weaving interdisciplinary methodologies into a concrete viewable product that can be easily disseminated, with maximal accessibility </li>
+<li> synergistic integration of disparate techniques into a particular unified system's practical implementation, generalized beyond its niche </li>
+<li> evidence-based communication of situationally effective tools and their results in a multimedia user-experience </li>
+</ul>
+
+
 <h3>
- Universally Accessible:  "Runs on any Toaster!"
+Universally Accessible:  "Runs like doom on a calculator powered by potato-voltaic cells!"
 </h3>
 <ul>
- <li> Runs in any generic standards-compliant browser (post ~2010 for WebGL1) without installation. Whole system sequestered entirely within any plain old browser's pure, vanilla Javascript + WebGL innate environment without any external libraries, packages, or dependencies </li> 
- <li> Intentionally stays completely in front-end, avoiding manual API traversal for back-end database query transfer or hardware persistent storage download routing (until perhaps some day expanding into MMORPG) </li> 
+<li> Runs in any generic standards-compliant browser (post ~2010 for WebGL1) without installation. Whole system sequestered entirely within any plain old browser's pure, vanilla Javascript + WebGL innate environment without any external libraries, packages, or dependencies </li>
+<li> Intentionally stays completely in front-end, avoiding manual API traversal for back-end database query transfer or hardware persistent storage download routing (until perhaps some day expanding into MMORPG) </li>
 </ul>
 <h3>
- Overall Design Decision Aspects
+Overall Design Decision Aspects
 </h3>
 <ul>
 <li> Without WebGL, accessing the GPU for this kind of work is basically impossible: </li>
-  
-<ul> 
-<li> Prior to WebGL1’s introduction circa ~2010, web applications had no direct or safe way to access the GPU. WebGL was introduced to provide standardized, quarantined, and sandboxed access to hardware-accelerated rasterization and shader-based rendering, making GPU-driven real-time interaction possible for this simulation. </li> 
+ <ul>
+<li> Prior to WebGL1’s introduction circa ~2010, web applications had no direct or safe way to access the GPU. WebGL was introduced to provide standardized, quarantined, and sandboxed access to hardware-accelerated rasterization and shader-based rendering, making GPU-driven real-time interaction possible for this simulation. </li>
 <li> Unless WebGL (including higher-level libraries that compile to it) is used, rasterization rendering on the HTML canvas is limited to draw-order compositing (Painter’s algorithm), as the 2D canvas API does not expose a depth buffer or any mechanism to execute programmable, per-pixel GPU work. Emulating depth testing, occlusion, and per-pixel shading on the CPU is computationally infeasible as resolution or geometric complexity increases in scale. The only practical way to perform such parallel per-pixel computation on the web is through WebGL, as otherwise re-implementing equivalent GPU access outside this API would require reconstructing substantial portions of the browser’s graphics, driver abstraction, and security infrastructure. </li>
-</ul> 
+</ul>
 
 <li> In real time, CPU alone sufficiently handles novel efficiently designed physics subroutines (alluded to in dissertation) </li>
 <li> Audio mathematically generated using DSP internally, such as with AM for ASDR envelopes, FM for vibrato / chirp signals, and additive/subtractive synthesis for filtering multiband noise layers </li>
 </ul>
 
 <h3>
- Noteworthy Technical Details and Environmental Elements to Explore
+Noteworthy Technical Details and Environmental Elements to Explore
 </h3>
 <ul>
- <li> Corner pocket yellow sun halo sphere signifies light source direction for Lambertian surface shading upon the curvature normal geometry reflection </li>
- <li> Homogenous density star field generated with statistical radially inverse transform sampling CDF continuous mapping of uniform U(0,1) </li>
- <li> To maintain smooth panning mobility throughout the navigational degrees of freedom, GNC for manipulating object orientation representations in state space uses complete quaternion-based orientation representations to avoid gimbal lock and preserve continuous, fully controllable, rotational motion under keyboard input. </li> 
- <li> Colliding with or shooting the planet surface 2-manifold causes some corresponding impulse response inspired by the material's continuum mechanical properties </li>
- <li> Shooting the basketball asteroid imparts momentum and causes it to disentigrate. Collision by nudging it with the spaceship's nose also applies a pushing impulse. </li>
- <li> Turning on/off gravitation field affects the spaceship, basketball asteroid, and the laser cannon projectile's orbit. </li>
+<li> Corner pocket yellow sun halo sphere signifies light source direction for Lambertian surface shading upon the curvature normal geometry reflection </li>
+<li> Homogenous density star field generated with statistical radially inverse transform sampling CDF continuous mapping of uniform U(0,1) </li>
+<li> To maintain smooth panning mobility throughout the navigational degrees of freedom, GNC for manipulating object orientation representations in state space uses complete quaternion-based orientation representations to avoid gimbal lock and preserve continuous, fully controllable, rotational motion under keyboard input. </li>
+<li> Colliding with or shooting the planet surface 2-manifold causes some corresponding impulse response inspired by the material's continuum mechanical properties </li>
+<li> Shooting the basketball asteroid imparts momentum and causes it to disentigrate. Impact by nudging it with the spaceship's nose also applies a pushing impulse. </li>
+<li> Turning on/off gravitation field affects the spaceship, basketball asteroid, and the laser cannon projectile's orbit. </li>
 </ul>
 
 <h1>Potential Future Directions </h1>
 <h2> Fun Related Spinoffs: </h2>
 <ul>
-<li> Multiplayer 3D “Asteroids / Galaxians” Battle, maybe even with non-Euclidian or periodic boundary rendering </li> 
-<li> “Crossfire” or “Hungry Hungry Hippos” type board game multiplayer online 3D simulation </li> 
-<li> Multiplayer 3D “Snake”, “Tetris”, “Lego Mindcraft Minestorm Sandbox Roblockus”, or “Etch-A-Sketch” </li> 
-<li> Multiplayer 3D Spaceship Soccer Rugby “Rocket League of Legends” </li> 
-<li> More realistic spatial acoustics and optics for stereo audio/vision in 3D </li> 
+<li> Multiplayer 3D “Asteroids / Galaxians” Battle, maybe even with non-Euclidian or periodic boundary rendering </li>
+<li> “Crossfire”, “Hungry Hungry Hippos”, or "origami sumo" tabletop type board game multiplayer online 3D spaceship simulation </li>
+<li> Multiplayer 3D “Snake”, “Tetris”, “Lego Mindcraft Minestorm Sandbox Roblockus”, or “Etch-A-Sketch” </li>
+<li> Multiplayer 3D Spaceship Soccer Rugby “Rocket League of Legends” </li>
+<li> More realistic spatial acoustics and optics for stereo audio/vision in 3D </li>
 </ul>
 
 <h2> Practical Scientific Application: </h2>
 
-(This demo is not intended to replace domain-specific simulation packages, but to illustrate how lightweight real-time interactive visualization and reduced-order physics models can complement traditional offline solvers.)
+Aside from amusement and entertainment, the constructed abstracted scaffold of the simulator's internal mechanism facilitates one to adaptively build upon its framework. Hypothetically mathematically speaking, it is possible to cater infrastructure to accomodate enhancing features of both <b> I&period; visual </b> and <b> II&period; mechanical </b> aspects of physical simulations for industry-relevant rapid-prototyping, scientific research, and engineering technology development.
 
-<h3> Fast, lean, streamlined, easy-to-use, generalizeable, and globally available live 3D dynamic display protocol: </h3>
-For the purposes of scientific research simulation diagnostic analysis, conveniently accessed rapidfire "peek-under-the-hood"-type "periscope viewport" examination tool to inspect multiresolution details within:
 <ul>
-<li> Molecular Dynamics simulation action scenes, particularly material thermal eutectic phase and kinetic aspects, including reaction mechanisms, catalysis, and biological design (protein folding / cryo-EM crystallography) </li> 
-<li> CFD Navier Stokes DNS results, particularly tensor field turbulent regions of high vorticity through interfacial level set fast marching methods </li> 
-<li> Elasticity / Plasticity outcomes of structural and solid mechanics of materials simulation, particularly finite elements of high stress,  strain, or deformation </li> 
-<li> Heat, Mass, and Electron Transport Phenomena numerical solutions, especially when paired with Marching Cubes upon the scalar field for iso-surface visualization </li> 
+
+<li> <h3> I&period; Visual: Fast, lean, streamlined, easy-to-use, generalizeable, and globally available live 3D dynamic display protocol </h3> </li>
+Within an aggregate development pipeline, conveniently deployed rapidfire "peek-under-the-hood"-type "periscope viewport" examination tool for diagnostic analysis, to inspect (perhaps precomputed) multiresolution scene details within:
+<ul>
+<li> Molecular Dynamics simulation action scenes, particularly material thermal eutectic phase and kinetic aspects, including reaction mechanisms, catalysis, and biological design (protein folding / cryo-EM crystallography) </li>
+<li> CFD Navier Stokes DNS results, particularly tensor field turbulent regions of high vorticity through interfacial level set fast marching methods </li>
+<li> Elasticity / Plasticity outcomes of structural and solid mechanics of materials simulation, particularly finite elements of high stress,  strain, or deformation </li>
+<li> Heat, Mass, and Electron Transport Phenomena numerical solutions, especially when paired with Marching Cubes upon the scalar field for iso-surface visualization </li>
 <li> Electromagnetism computations, particularly for CAD of semiconductor and optical devices for their associated behavioral properties </li>
 <li> Data visualization, particularly for meaningfully extending 2D methods such as t-distributed stochastic neighbor embedding or SVD PCA to 3D interpretive viewing, and for voxel reconstruction, often from filtered backprojection computed tomography (CT scans), optical coherence tomography (OCT), or nuclear magnetic resonance imaging (biomedical MRI). </li>
 </ul>
 
-<h3> Efficient original live-simulation physics PDE protocol: </h3>
+<li> <h3> II&period; Mechanical: Efficient original live-simulation physics PDE protocol </h3> </li>
 <p>
 For the purposes of scientific research simulation, the notion of resource drain from computational complexity is often completely ignored to instead prioritize mathematical physics fidelity, as hinted at in my dissertation. Meanwhile, on the other hand, video game systems tend to focus on visual aesthetics of sufficiently compelling physical motion, often with expressive artistic flair that may not be realistic. As inspired by my dissertation, it can be practical to formulate an interstitial paradigm inbetween the two extreme realms, as one can benefit from balancing both contrasting worlds through pairwise tradeoff, to create sufficiently accurate live-controlled simulations that don't end up occupying an entire institutional facility's HPC high-performance-computing cloud cluster for extraordinary durations. Furthermore, such artisan simplicity allows a lone single practitioner to perform detailed adaptive hand-crafted surgical customization.
 </p>
 <p>
-As shown by this study where the STE(A)M Game Bengine runs in linear real-time on any old CPU on its own upon any delapidated browser of choice, it is possible to modify / adapt it using novel numerical algorithms touched upon in my dissertation, while still preserving its linear runtime complexity (with respect to current scene population), in a manner that reflects ground-truth physics style better. (Admittedly for task manageability, various ad hoc myopic "duct-tape" approaches were implemented in this preliminary go-around demo / first pass iteration to avoid programming language code system execution crash, to yield a user-centered system that at least runs robustly for the player). In fact, the relevant physics can be fully preserved upon a system with some redundant symmetry, often the case in practical scenarios. Particularly, if a physical object with a deformable body has uniform or a predefined internal density structure, one can ultimately omit simulating its interior while still mathematically respecting the representative classical / continuum mechanics, saving costs.
+As shown by this study where the STE(A)M Game Bengine runs in linear real-time on any old CPU on its own upon any delapidated browser of choice, it is possible to modify / adapt it using novel numerical algorithms touched upon in my dissertation, while still preserving its linear runtime complexity (with respect to current scene population), in a manner that reflects ground-truth physics style better. (Admittedly for task manageability, various ad hoc myopic "duct-tape" approaches were implemented in this preliminary go-around demo / first pass iteration to avoid programming language code system execution crash, to yield a user-centered system that at least runs robustly for the player). In fact, the relevant physics can be fully preserved upon a system exhibiting some redundant symmetry, predominantly the case in practically relevant scenarios. Particularly, if a physical object with a deformable body has uniform or a predefined internal density structure, one can ultimately omit simulating its interior while still mathematically respecting its associated representative classical / continuum mechanics, saving costs.
 </p>
 <p>
 It can be conducive to scientific investigation to be able to experiment with lean but more physically precise simulators&mdash; obeying mechanical laws and accurately following formal principles&mdash; particularly when faced with significant resource constraints. This occurs in settings where whatever happens in silico must be carried out in real time, with massive parallelization, or with minimizing boiler-plate setup costs. Examples of these include real-time remote robotic vehicle control adhering to environmental conditions, synthetic big data-set generation for physics-informed machine learning to train lean-embedded AI models for automating robotic movement, or computational setup associated with parametrically defining all initialization/boundaries, along with the operational logistics of human-resource development of specialized training for such niche computer programming skillset (e.g. openFOAM / Ansys / Abaqus / COMSOL / Solidworks and the like, versus every freely available browser.)
 </p>
 <p>
-For the purposes of the gaming industry which we have not yet forgotten, even if physical consistency is comparatively less important in this context, livestream rendering of a real-time simulated virtual world environment, governed by an open-loop feedback on-line control system, is crucial for any actual use-case. As such, it may be worth reconsidering hardware constraints, optimization speedup, or quality improvement, by looking into alternatives to massive parallelized smooth particle hydrodynamics (SPH) typically employed&mdash; where rheological interiors are captured by the disorganized throngs of unstructured points in the cloud cascaded with an onslaught of simultaneous GPU update hordes&mdash; especially when competing with accurate parallelized / explicit PDE numerical methods, analogous in fashion to the niche advantage arising from DSP’s overlap add/save method. 
+For the purposes of the gaming industry which we have not yet forgotten, even if physical consistency is comparatively less important in this context, livestream rendering of a real-time simulated virtual world environment, governed by an open-loop feedback on-line control system, is crucial for any actual use-case. As such, it may be worth reconsidering hardware constraints, optimization speedup, or quality improvement, by looking into alternatives to massive parallelized smoothed particle hydrodynamics (SPH) typically employed&mdash; where rheological interiors are captured by the disorganized throngs of unstructured points in the cloud cascaded with an onslaught of simultaneous GPU update hordes&mdash; especially when competing with accurate parallelized / explicit PDE numerical methods, analogous in fashion to the niche advantage arising from DSP’s overlap add/save method.
 </p>
-<p> 
-In conclusion, this all delineates the core essence behind the coined term “Bengineering”,  portraying the doctrine of philosophy underlying the STE(A)M Game Bengine and its initial presentation, along with any subsequent continuation and ongoing development, all endeavoring to further advance the aggregate frontier of our collective technological capacity, serving the human purpose. 
+
+</ul>
+
+<p>
+In conclusion, this all delineates the core essence behind the coined term “Bengineering”,  portraying the doctrine of philosophy underlying the STE(A)M Game Bengine and its initial presentation, along with any subsequent continuation and ongoing development, all endeavoring to further advance the aggregate frontier of our collective technological capacity, serving the human purpose.
 </p>
+
 </div>
 
  <script src="script.js"></script>
 </body>
 </html>
+
 
 
 
