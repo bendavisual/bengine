@@ -72,7 +72,7 @@ Overall Design Decision Aspects
 <li> Without WebGL, accessing the GPU for this kind of work is basically impossible: </li>
  <ul>
 <li> Prior to WebGL1’s introduction circa ~2010, web applications had no direct or safe way to access the GPU. WebGL was introduced to provide standardized, quarantined, and sandboxed access to hardware-accelerated rasterization and shader-based rendering, making GPU-driven real-time interaction possible for this simulation. </li>
-<li> Unless WebGL (including higher-level libraries that compile to it) is used, rasterization rendering on the HTML canvas is limited to draw-order compositing (Painter’s algorithm), as the 2D canvas API does not expose a depth buffer or any mechanism to execute programmable, per-pixel GPU work. Emulating depth testing, occlusion, and per-pixel shading on the CPU is computationally infeasible as resolution or geometric complexity increases in scale. The only practical way to perform such parallel per-pixel computation on the web is through WebGL, as otherwise re-implementing equivalent GPU access outside this API would require reconstructing substantial portions of the browser’s graphics, driver abstraction, and security infrastructure. </li>
+<li> Unless WebGL (including higher-level libraries that compile to it) is used, rasterization rendering on the HTML canvas is limited to draw-order compositing (Painter’s algorithm upon trianglular elements), as the 2D canvas API does not expose a depth buffer or any mechanism to execute programmable, per-pixel GPU work. Emulating depth testing, occlusion, and per-pixel shading on the CPU is computationally infeasible as scene resolution or geometric complexity increases in scale. The only practical way to perform such parallel per-pixel computation on the web is through WebGL, as otherwise re-implementing equivalent GPU access outside this API would require reconstructing substantial portions of the browser’s graphics, driver abstraction, and security infrastructure. </li>
 </ul>
 
 <li> In real time, CPU alone sufficiently handles novel efficiently designed physics subroutines (alluded to in dissertation) </li>
@@ -146,6 +146,7 @@ In conclusion, this all delineates the core essence behind the coined term “Be
  <script src="script.js"></script>
 </body>
 </html>
+
 
 
 
